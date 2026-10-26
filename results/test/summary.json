@@ -1,0 +1,406 @@
+{
+ "agent": {
+  "sheets_gradeable": 190,
+  "false_retake_rate": 0.02631578947368421,
+  "questions_total": 7600,
+  "auto_coverage": 0.9546052631578947,
+  "auto_accuracy": 1.0,
+  "silent_errors": 0,
+  "silent_errors_per_1000q": 0.0,
+  "review_rate": 0.019078947368421053,
+  "sheets_fully_auto_and_correct": 0.5,
+  "sheets_needing_review": 0.47368421052631576,
+  "mean_review_q_per_sheet": 0.7631578947368421,
+  "by_split": {
+   "clean": {
+    "sheets": 50,
+    "false_retake": 0,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0145
+   },
+   "typical": {
+    "sheets": 80,
+    "false_retake": 2,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.018125
+   },
+   "hard": {
+    "sheets": 60,
+    "false_retake": 3,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.024166666666666666
+   }
+  },
+  "by_kind": {
+   "blank": {
+    "n": 288,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.003472222222222222
+   },
+   "erased": {
+    "n": 341,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.002932551319648094
+   },
+   "faint": {
+    "n": 156,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.7051282051282052
+   },
+   "multi": {
+    "n": 234,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.004273504273504274
+   },
+   "normal": {
+    "n": 6381,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0050148879485973985
+   }
+  },
+  "retake_sheets": 40,
+  "retake_requested": 1.0,
+  "retake_set_silent_errors": 0,
+  "retake_by_kind": {
+   "blur": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "far": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "glare": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "motion": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "occluded": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   }
+  },
+  "latency_ms_p50": 466.29526899960183,
+  "latency_ms_p95": 741.6076620989769,
+  "mean_tool_calls": 5.934782608695652
+ },
+ "no_zoom": {
+  "sheets_gradeable": 190,
+  "false_retake_rate": 0.02631578947368421,
+  "questions_total": 7600,
+  "auto_coverage": 0.9125,
+  "auto_accuracy": 1.0,
+  "silent_errors": 0,
+  "silent_errors_per_1000q": 0.0,
+  "review_rate": 0.06118421052631579,
+  "sheets_fully_auto_and_correct": 0.08947368421052632,
+  "sheets_needing_review": 0.8842105263157894,
+  "mean_review_q_per_sheet": 2.4473684210526314,
+  "by_split": {
+   "clean": {
+    "sheets": 50,
+    "false_retake": 0,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.066
+   },
+   "typical": {
+    "sheets": 80,
+    "false_retake": 2,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.056875
+   },
+   "hard": {
+    "sheets": 60,
+    "false_retake": 3,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.06291666666666666
+   }
+  },
+  "by_kind": {
+   "blank": {
+    "n": 288,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.003472222222222222
+   },
+   "erased": {
+    "n": 341,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.9208211143695014
+   },
+   "faint": {
+    "n": 156,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.75
+   },
+   "multi": {
+    "n": 234,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.004273504273504274
+   },
+   "normal": {
+    "n": 6381,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0050148879485973985
+   }
+  },
+  "retake_sheets": 40,
+  "retake_requested": 1.0,
+  "retake_set_silent_errors": 0,
+  "retake_by_kind": {
+   "blur": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "far": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "glare": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "motion": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "occluded": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   }
+  },
+  "latency_ms_p50": 328.91168300011486,
+  "latency_ms_p95": 482.3350221511641,
+  "mean_tool_calls": 3.9130434782608696
+ },
+ "no_review": {
+  "sheets_gradeable": 190,
+  "false_retake_rate": 0.02631578947368421,
+  "questions_total": 7600,
+  "auto_coverage": 0.9736842105263158,
+  "auto_accuracy": 0.9997297297297297,
+  "silent_errors": 2,
+  "silent_errors_per_1000q": 0.2631578947368421,
+  "review_rate": 0.0,
+  "sheets_fully_auto_and_correct": 0.9631578947368421,
+  "sheets_needing_review": 0.0,
+  "mean_review_q_per_sheet": 0.0,
+  "by_split": {
+   "clean": {
+    "sheets": 50,
+    "false_retake": 0,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "typical": {
+    "sheets": 80,
+    "false_retake": 2,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "hard": {
+    "sheets": 60,
+    "false_retake": 3,
+    "auto_accuracy": 0.9991228070175439,
+    "silent_errors": 2,
+    "review_rate": 0.0
+   }
+  },
+  "by_kind": {
+   "blank": {
+    "n": 288,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "erased": {
+    "n": 341,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "faint": {
+    "n": 156,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "multi": {
+    "n": 234,
+    "auto_accuracy": 0.9957264957264957,
+    "silent_errors": 1,
+    "review_rate": 0.0
+   },
+   "normal": {
+    "n": 6381,
+    "auto_accuracy": 0.9998432847516063,
+    "silent_errors": 1,
+    "review_rate": 0.0
+   }
+  },
+  "retake_sheets": 40,
+  "retake_requested": 1.0,
+  "retake_set_silent_errors": 0,
+  "retake_by_kind": {
+   "blur": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "far": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "glare": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "motion": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "occluded": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   }
+  },
+  "latency_ms_p50": 478.0871449984261,
+  "latency_ms_p95": 718.8933664005161,
+  "mean_tool_calls": 5.934782608695652
+ },
+ "baseline_single_pass": {
+  "sheets_gradeable": 190,
+  "false_retake_rate": 0.010526315789473684,
+  "questions_total": 7600,
+  "auto_coverage": 0.9894736842105263,
+  "auto_accuracy": 0.9914893617021276,
+  "silent_errors": 64,
+  "silent_errors_per_1000q": 8.421052631578947,
+  "review_rate": 0.0,
+  "sheets_fully_auto_and_correct": 0.8052631578947368,
+  "sheets_needing_review": 0.0,
+  "mean_review_q_per_sheet": 0.0,
+  "by_split": {
+   "clean": {
+    "sheets": 50,
+    "false_retake": 0,
+    "auto_accuracy": 1.0,
+    "silent_errors": 0,
+    "review_rate": 0.0
+   },
+   "typical": {
+    "sheets": 80,
+    "false_retake": 2,
+    "auto_accuracy": 0.9945512820512821,
+    "silent_errors": 17,
+    "review_rate": 0.0
+   },
+   "hard": {
+    "sheets": 60,
+    "false_retake": 0,
+    "auto_accuracy": 0.9804166666666667,
+    "silent_errors": 47,
+    "review_rate": 0.0
+   }
+  },
+  "by_kind": {
+   "blank": {
+    "n": 293,
+    "auto_accuracy": 0.931740614334471,
+    "silent_errors": 20,
+    "review_rate": 0.0
+   },
+   "erased": {
+    "n": 349,
+    "auto_accuracy": 0.997134670487106,
+    "silent_errors": 1,
+    "review_rate": 0.0
+   },
+   "faint": {
+    "n": 158,
+    "auto_accuracy": 0.9746835443037974,
+    "silent_errors": 4,
+    "review_rate": 0.0
+   },
+   "multi": {
+    "n": 236,
+    "auto_accuracy": 0.902542372881356,
+    "silent_errors": 23,
+    "review_rate": 0.0
+   },
+   "normal": {
+    "n": 6484,
+    "auto_accuracy": 0.9975323874151758,
+    "silent_errors": 16,
+    "review_rate": 0.0
+   }
+  },
+  "retake_sheets": 40,
+  "retake_requested": 0.525,
+  "retake_set_silent_errors": 126,
+  "retake_by_kind": {
+   "blur": {
+    "n": 8,
+    "retake": 5,
+    "silent_errors": 1
+   },
+   "far": {
+    "n": 8,
+    "retake": 0,
+    "silent_errors": 0
+   },
+   "glare": {
+    "n": 8,
+    "retake": 0,
+    "silent_errors": 125
+   },
+   "motion": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   },
+   "occluded": {
+    "n": 8,
+    "retake": 8,
+    "silent_errors": 0
+   }
+  },
+  "latency_ms_p50": 196.93659999938973,
+  "latency_ms_p95": 290.16068549881305,
+  "mean_tool_calls": 3.7
+ }
+}

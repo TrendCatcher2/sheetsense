@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b4252"/></marker>
+    <style>
+      .p{fill:#eef4ff;stroke:#1f5eff;stroke-width:1.6}
+      .d{fill:#fff7e0;stroke:#c99400;stroke-width:1.6}
+      .a{fill:#e9f7ee;stroke:#11803c;stroke-width:1.6}
+      .h{fill:#fdecea;stroke:#b42318;stroke-width:1.6}
+      .t{font-size:15px;font-weight:700;fill:#16181d}
+      .s{font-size:12.5px;fill:#3b4252}
+      .m{font-size:11.5px;fill:#5b6170;font-family:ui-monospace,Menlo,Consolas,monospace}
+      .l{stroke:#3b4252;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .lab{font-size:12px;font-weight:700;fill:#3b4252}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#f6f7f9"/>
+  <text x="30" y="40" font-size="24" font-weight="800" fill="#16181d">SheetSense agent loop: what it sees decides what it does next</text>
+  <g font-size="13" font-weight="700">
+    <rect x="30" y="58" width="16" height="16" class="p"/><text x="52" y="71" fill="#16181d">perceive (OpenCV 5 tool)</text>
+    <rect x="250" y="58" width="16" height="16" class="d"/><text x="272" y="71" fill="#16181d">decide (policy)</text>
+    <rect x="410" y="58" width="16" height="16" class="a"/><text x="432" y="71" fill="#16181d">act</text>
+    <rect x="490" y="58" width="16" height="16" class="h"/><text x="512" y="71" fill="#16181d">human in the loop</text>
+  </g>
+
+  <!-- row 1 -->
+  <rect x="30" y="100" width="260" height="120" rx="12" class="p"/>
+  <text x="46" y="126" class="t">locate_sheet</text>
+  <text x="46" y="148" class="m">ArUco → +CLAHE → +flatten</text>
+  <text x="46" y="166" class="m">→ ½-scale → page outline +</text>
+  <text x="46" y="184" class="m">template match (4 rotations)</text>
+  <text x="46" y="206" class="s">escalates only when the last try failed</text>
+
+  <rect x="340" y="110" width="200" height="100" rx="50" class="d"/>
+  <text x="440" y="150" text-anchor="middle" class="t">sheet found?</text>
+  <text x="440" y="172" text-anchor="middle" class="s">homography error &lt; 2 mm</text>
+
+  <rect x="590" y="100" width="260" height="120" rx="12" class="p"/>
+  <text x="606" y="126" class="t">measure_quality</text>
+  <text x="606" y="148" class="m">sharpness (Laplacian / contrast)</text>
+  <text x="606" y="166" class="m">resolution (photo px per mm)</text>
+  <text x="606" y="184" class="m">printed-ring legibility per row</text>
+  <text x="606" y="206" class="s">rings are a built-in calibration target</text>
+
+  <rect x="900" y="110" width="270" height="100" rx="50" class="d"/>
+  <text x="1035" y="150" text-anchor="middle" class="t">readable?</text>
+  <text x="1035" y="172" text-anchor="middle" class="s">sharp, close, ≤10 rows under glare</text>
+
+  <!-- retake -->
+  <rect x="340" y="270" width="520" height="70" rx="12" class="a"/>
+  <text x="356" y="296" class="t">request_retake with a specific instruction</text>
+  <text x="356" y="320" class="s">"Corner square top-right not visible…", "Photo is blurry…", "Glare…", "Move closer…"</text>
+
+  <!-- row 2 -->
+  <rect x="900" y="390" width="270" height="110" rx="12" class="p"/>
+  <text x="916" y="416" class="t">read_bubbles</text>
+  <text x="916" y="438" class="m">warp to 6 px/mm, divide out</text>
+  <text x="916" y="456" class="m">lighting, ink darkness per bubble,</text>
+  <text x="916" y="474" class="m">per-sheet empty/filled calibration</text>
+
+  <rect x="610" y="395" width="240" height="100" rx="50" class="d"/>
+  <text x="730" y="435" text-anchor="middle" class="t">every row confident?</text>
+  <text x="730" y="457" text-anchor="middle" class="s">one clear mark / blank / 2+</text>
+
+  <rect x="320" y="390" width="250" height="110" rx="12" class="p"/>
+  <text x="336" y="416" class="t">zoom_question (active)</text>
+  <text x="336" y="438" class="m">re-warp only that row from the</text>
+  <text x="336" y="456" class="m">original photo at 14 px/mm,</text>
+  <text x="336" y="474" class="m">local search + Otsu ink coverage</text>
+
+  <rect x="30" y="395" width="250" height="100" rx="50" class="d"/>
+  <text x="155" y="435" text-anchor="middle" class="t">resolved?</text>
+  <text x="155" y="457" text-anchor="middle" class="s">solid ink vs. erasure smudge</text>
+
+  <!-- row 3 -->
+  <rect x="30" y="580" width="330" height="110" rx="12" class="h"/>
+  <text x="46" y="606" class="t">ask_teacher</text>
+  <text x="46" y="628" class="s">close-up crop, reason ("faint mark",</text>
+  <text x="46" y="648" class="s">"glare over this row") and candidates;</text>
+  <text x="46" y="668" class="s">teacher picks A–D / blank / multiple</text>
+
+  <rect x="430" y="580" width="330" height="110" rx="12" class="a"/>
+  <text x="446" y="606" class="t">propose_grade</text>
+  <text x="446" y="628" class="s">answers + annotated sheet + full trace;</text>
+  <text x="446" y="648" class="s">score stays provisional until every</text>
+  <text x="446" y="668" class="s">flagged question is answered</text>
+
+  <rect x="830" y="580" width="340" height="110" rx="12" class="h"/>
+  <text x="846" y="606" class="t">teacher approves</text>
+  <text x="846" y="628" class="s">nothing is final without a person;</text>
+  <text x="846" y="648" class="s">approved grade → class list / CSV</text>
+
+  <!-- arrows -->
+  <path d="M290 160 L340 160" class="l"/>
+  <path d="M540 160 L590 160" class="l"/><text x="550" y="150" class="lab">yes</text>
+  <path d="M440 210 L440 270" class="l"/><text x="448" y="246" class="lab">no (all variants tried)</text>
+  <path d="M850 160 L900 160" class="l"/>
+  <path d="M1035 210 L1035 305 L860 305" class="l"/><text x="1043" y="260" class="lab">no</text>
+  <path d="M1105 210 L1105 390" class="l"/><text x="1113" y="300" class="lab">yes</text>
+  <path d="M900 445 L850 445" class="l"/>
+  <path d="M610 445 L570 445" class="l"/><text x="574" y="436" class="lab">no</text>
+  <path d="M730 495 L730 580" class="l"/><text x="738" y="545" class="lab">yes</text>
+  <path d="M320 445 L280 445" class="l"/>
+  <path d="M155 495 L155 580" class="l"/><text x="163" y="545" class="lab">no / glare</text>
+  <path d="M250 480 L470 560 L520 580" class="l"/><text x="300" y="548" class="lab">yes</text>
+  <path d="M360 635 L430 635" class="l"/>
+  <path d="M760 635 L830 635" class="l"/>
+</svg>

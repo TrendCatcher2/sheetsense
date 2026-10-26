@@ -1,0 +1,29 @@
+{
+ "sample-clean.jpg": {
+  "status": "READY",
+  "n": 15,
+  "e2e_ms_p50": 1688.185073002387,
+  "e2e_ms_p95": 1821.398926301117,
+  "agent_ms_p50": 954.4,
+  "agent_ms_p95": 1018.4699999999998,
+  "first_call_ms": 1961.9757270011178
+ },
+ "sample-review.jpg": {
+  "status": "NEEDS_REVIEW",
+  "n": 15,
+  "e2e_ms_p50": 2066.59591800053,
+  "e2e_ms_p95": 2120.7735096028046,
+  "agent_ms_p50": 1248.2,
+  "agent_ms_p95": 1264.28,
+  "first_call_ms": 2055.0218940006744
+ },
+ "sample-blurry.jpg": {
+  "status": "RETAKE",
+  "n": 15,
+  "e2e_ms_p50": 1685.1348179989145,
+  "e2e_ms_p95": 1922.4129133002857,
+  "agent_ms_p50": 1130.8,
+  "agent_ms_p95": 1146.06,
+  "first_call_ms": 1719.1740639973432
+ }
+}

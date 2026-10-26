@@ -1,0 +1,3 @@
+-r requirements-lambda.txt
+# local tooling only (asset build, UI screenshots); not shipped to Lambda
+pillow==13.0.0

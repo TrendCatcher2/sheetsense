@@ -1,0 +1,37 @@
+{
+  "widgets": [
+    {"type": "metric", "x": 0, "y": 0, "width": 12, "height": 6, "properties": {
+      "title": "Grading latency (ms)", "region": "__REGION__", "view": "timeSeries", "stat": "p50", "period": 300,
+      "metrics": [
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "READY", {"label": "READY p50"}],
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "NEEDS_REVIEW", {"label": "NEEDS_REVIEW p50"}],
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "RETAKE", {"label": "RETAKE p50"}]
+      ]}},
+    {"type": "metric", "x": 12, "y": 0, "width": 12, "height": 6, "properties": {
+      "title": "Agent outcomes (requests)", "region": "__REGION__", "view": "timeSeries", "stat": "SampleCount", "period": 300,
+      "metrics": [
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "READY"],
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "NEEDS_REVIEW"],
+        ["SheetSense", "LatencyMs", "Route", "grade", "Outcome", "RETAKE"]
+      ]}},
+    {"type": "metric", "x": 0, "y": 6, "width": 12, "height": 6, "properties": {
+      "title": "Questions sent to teacher review / tool calls per request", "region": "__REGION__", "view": "timeSeries", "stat": "Average", "period": 300,
+      "metrics": [
+        ["SheetSense", "ReviewQuestions", "Route", "grade", "Outcome", "NEEDS_REVIEW"],
+        ["SheetSense", "ToolCalls", "Route", "grade", "Outcome", "READY"],
+        ["SheetSense", "ToolCalls", "Route", "grade", "Outcome", "NEEDS_REVIEW"],
+        ["SheetSense", "ToolCalls", "Route", "grade", "Outcome", "RETAKE"]
+      ]}},
+    {"type": "metric", "x": 12, "y": 6, "width": 12, "height": 6, "properties": {
+      "title": "Lambda (arm64) invocations, errors, duration", "region": "__REGION__", "view": "timeSeries", "period": 300,
+      "metrics": [
+        ["AWS/Lambda", "Invocations", "FunctionName", "__FN__", {"stat": "Sum"}],
+        ["AWS/Lambda", "Errors", "FunctionName", "__FN__", {"stat": "Sum"}],
+        ["AWS/Lambda", "Throttles", "FunctionName", "__FN__", {"stat": "Sum"}],
+        ["AWS/Lambda", "Duration", "FunctionName", "__FN__", {"stat": "p95", "yAxis": "right"}]
+      ]}},
+    {"type": "log", "x": 0, "y": 12, "width": 24, "height": 6, "properties": {
+      "title": "Recent agent decisions", "region": "__REGION__", "view": "table",
+      "query": "SOURCE '/aws/lambda/__FN__' | filter Route = 'grade' | fields @timestamp, Outcome, LatencyMs, ReviewQuestions, ToolCalls, request_id | sort @timestamp desc | limit 50"}}
+  ]
+}

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b4252"/></marker>
+    <style>
+      .box{fill:#ffffff;stroke:#c7cdd8;stroke-width:1.5}
+      .aws{fill:#fff7ec;stroke:#ff9900;stroke-width:2}
+      .cv{fill:#eef4ff;stroke:#1f5eff;stroke-width:1.5}
+      .t{font-size:16px;font-weight:700;fill:#16181d}
+      .s{font-size:13px;fill:#3b4252}
+      .m{font-size:12px;fill:#5b6170;font-family:ui-monospace,Menlo,Consolas,monospace}
+      .l{stroke:#3b4252;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .d{stroke:#8a93a5;stroke-width:1.4;fill:none;stroke-dasharray:5 4;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1200" height="660" fill="#f6f7f9"/>
+  <text x="30" y="40" font-size="24" font-weight="800" fill="#16181d">SheetSense architecture</text>
+  <text x="30" y="64" class="s">OpenCV 5.0.0 grading agent on AWS Lambda (arm64 / Graviton). Photos are processed in memory only and never stored.</text>
+
+  <!-- client -->
+  <rect x="30" y="110" width="250" height="250" rx="14" class="box"/>
+  <text x="50" y="140" class="t">Teacher's phone / browser</text>
+  <text x="50" y="168" class="s">1. Enter or scan answer key</text>
+  <text x="50" y="190" class="s">2. Photograph student sheet</text>
+  <text x="50" y="212" class="s">   (resized to ≤1600 px JPEG)</text>
+  <text x="50" y="234" class="s">3. Check flagged questions</text>
+  <text x="50" y="256" class="s">   using the agent's close-ups</text>
+  <text x="50" y="278" class="s">4. Approve grade → class list,</text>
+  <text x="50" y="300" class="s">   CSV export (local only)</text>
+  <text x="50" y="336" class="m">index.html · no frameworks</text>
+
+  <!-- AWS cloud -->
+  <rect x="330" y="90" width="840" height="400" rx="18" fill="none" stroke="#ff9900" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="350" y="116" font-size="15" font-weight="800" fill="#c46f00">AWS · ap-south-1 (Mumbai)</text>
+
+  <rect x="350" y="140" width="170" height="90" rx="12" class="aws"/>
+  <text x="365" y="170" class="t">Lambda</text>
+  <text x="365" y="190" class="t">Function URL</text>
+  <text x="365" y="214" class="m">HTTPS · public demo</text>
+
+  <rect x="560" y="130" width="400" height="330" rx="14" class="aws"/>
+  <text x="580" y="160" class="t">AWS Lambda · arm64 (Graviton) · Python 3.14</text>
+  <text x="580" y="180" class="m">app.handler → GradingAgent · 2 GB · 30 s timeout</text>
+  <rect x="580" y="196" width="360" height="118" rx="10" class="cv"/>
+  <text x="596" y="220" class="t">Grading agent (perceive → decide → act)</text>
+  <text x="596" y="244" class="s">policy chooses the next tool from what it saw;</text>
+  <text x="596" y="264" class="s">every step is written to a trace</text>
+  <text x="596" y="292" class="m">retake · zoom · review · propose grade</text>
+  <rect x="580" y="326" width="360" height="118" rx="10" class="cv"/>
+  <text x="596" y="350" class="t">OpenCV 5 tools</text>
+  <text x="596" y="372" class="m">ArucoDetector · findHomography(RANSAC)</text>
+  <text x="596" y="392" class="m">warpPerspective · CLAHE · morphology</text>
+  <text x="596" y="412" class="m">Canny/contours + matchTemplate fallback</text>
+  <text x="596" y="432" class="m">Laplacian sharpness · Otsu ink coverage</text>
+
+  <rect x="1000" y="140" width="150" height="110" rx="12" class="aws"/>
+  <text x="1015" y="170" class="t">CloudWatch</text>
+  <text x="1015" y="192" class="s">Logs (EMF JSON)</text>
+  <text x="1015" y="212" class="s">Metrics</text>
+  <text x="1015" y="232" class="s">Dashboard</text>
+
+  <rect x="1000" y="290" width="150" height="80" rx="12" class="aws"/>
+  <text x="1015" y="318" class="t">IAM role</text>
+  <text x="1015" y="340" class="s">write logs only</text>
+
+  <rect x="1000" y="390" width="150" height="80" rx="12" class="aws"/>
+  <text x="1015" y="418" class="t">S3 (private)</text>
+  <text x="1015" y="440" class="s">deploy artifacts</text>
+
+  <!-- flows -->
+  <path d="M280 175 L350 175" class="l"/>
+  <text x="286" y="158" class="m">POST</text><text x="286" y="198" class="m">/api/</text><text x="286" y="212" class="m">grade</text>
+  <path d="M520 185 L560 185" class="l"/>
+  <path d="M560 250 L520 250 L520 290 L280 290" class="l"/>
+  <text x="345" y="312" class="m">JSON: answers, crops, trace</text>
+  <path d="M960 190 L1000 190" class="l"/>
+  <path d="M1000 330 L960 330" class="d"/>
+  <path d="M1000 430 L960 430" class="d"/>
+
+  <!-- deploy -->
+  <rect x="330" y="520" width="840" height="110" rx="14" class="box"/>
+  <text x="350" y="550" class="t">Reproducible delivery</text>
+  <text x="350" y="575" class="s">deploy/deploy.sh: pins opencv-python-headless 5.0.0.93 + numpy 2.5.4 aarch64 wheels → zip → S3 → Lambda (create or update) →</text>
+  <text x="350" y="597" class="s">Function URL, 14-day log retention, concurrency cap where allowed, CloudWatch dashboard; teardown.sh removes it all.</text>
+  <text x="350" y="619" class="s">Evaluation: eval/synth.py (seeded ground truth) + eval/run_eval.py (agent vs. ablations vs. single-pass baseline) + tests/ (pytest).</text>
+  <path d="M760 520 L760 460" class="d"/>
+</svg>
